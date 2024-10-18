@@ -76,6 +76,11 @@ watchEffect(() => {
   }
 });
 
+const hamburgerMenuState = ref(false);
+const showMenu = () => {
+  hamburgerMenuState.value = !hamburgerMenuState.value;
+}
+
 </script>
 
 <template>
@@ -91,6 +96,17 @@ watchEffect(() => {
         <div class="user-access">
           <span v-if="localUser" @click="clickNotif()">Notification ({{ notifFromUpvotes.length +
             notifFromComments.length }})</span>
+          <RouterLink v-if="localUser" :to="`/profile/${userStore.name}`">Profile</RouterLink>
+          <span v-if="localUser" @click="logout">Logout</span>
+        </div>
+        <div class="hamburger-menu" @click="showMenu()">
+          <span v-if="!hamburgerMenuState">---</span>
+          <span v-if="!hamburgerMenuState">---</span>
+          <span v-if="!hamburgerMenuState">---</span>
+          <span v-else>X</span>
+        </div>
+        <div class="mobile-user-access" v-if="hamburgerMenuState">
+          <span v-if="localUser" @click="clickNotif()">Notification</span>
           <RouterLink v-if="localUser" :to="`/profile/${userStore.name}`">Profile</RouterLink>
           <span v-if="localUser" @click="logout">Logout</span>
         </div>
@@ -158,6 +174,18 @@ nav .user-access {
   width: 250px;
 }
 
+nav .hamburger-menu {
+  display: none;
+}
+
+nav .mobile-user-access {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 250px;
+  animation: moveUp 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
 .notification {
   background-color: #ffff;
   border: 2px solid #e84393;
@@ -200,6 +228,23 @@ nav .user-access {
     right: 5%;
     width: 90%;
   }
+
+  nav .user-access {
+    background-color: red;
+    display: none;
+  }
+
+  nav .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    animation: moveUp 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+
+  nav .hamburger-menu span {
+    margin: -6px;
+  }
 }
 
 @keyframes notif-animation {
@@ -211,6 +256,19 @@ nav .user-access {
   100% {
     height: 350px;
     color: black;
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+    border-radius: 15px;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 </style>
