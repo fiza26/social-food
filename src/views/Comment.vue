@@ -144,7 +144,7 @@ async function deleteComment(comment) {
                     <img v-else :src="item.profile_picture" alt="" class="user-profile-picture">
                     <div class="post-detail">
                         <div class="nameAndDate">
-                            <RouterLink :to="`/Profile/${item.name}`">
+                            <RouterLink :to="`/profile/${item.name}`">
                                 <h3>{{ item.name }}</h3>
                             </RouterLink>
                             <p>{{ item.date_created }}</p>
@@ -207,7 +207,7 @@ async function deleteComment(comment) {
                                 <img v-else :src="comment.profile_picture" alt="" class="user-profile-picture">
                             </div>
                             <div class="name-date">
-                                <RouterLink :to="`/Profile/${comment.name}`">
+                                <RouterLink :to="`/profile/${comment.name}`">
                                     <h3>{{ comment.name }}</h3>
                                 </RouterLink>
                                 <p>{{ comment.date_created }}</p>
@@ -264,7 +264,7 @@ hr {
     background-color: #ffff;
     border: 2px solid #e84393;
     padding: 15px;
-    max-width: 30rem;
+    max-width: 40rem;
     box-shadow: 10px 10px #000000bf;
     margin-bottom: 25px;
     border-radius: 15px;
@@ -371,7 +371,7 @@ hr {
 }
 
 .content img {
-    width: 400px;
+    width: 557px;
     border-radius: 15px;
     cursor: pointer;
 }
@@ -625,6 +625,11 @@ hr {
 
     .modal .full-image {
         width: 350px;
+    }
+
+    .notif {
+        right: 1%;
+        width: 90%;
     }
 }
 </style>

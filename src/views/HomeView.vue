@@ -229,21 +229,10 @@ const closeNotif = () => {
   <main>
     <div class="master-container">
       <div class="container">
-        <PostForm
-          v-model="content"  
-          v-model:label="label"  
-          v-model:foodName="foodName"
-          :foodName="foodName"
-          :afterChooseFood="afterChooseFood"
-          :filteredFoods="filteredFoods"
-          :imageUploadedUrl="imageUploadedUrl"
-          :uploadState="uploadState"
-          :chooseFood="chooseFood"
-          :handleFileChange="handleFileChange"
-          :removeFile="removeFile"
-          :addPost="addPost"
-          :uploadStateActive="uploadStateActive"
-        />
+        <PostForm v-model="content" v-model:label="label" v-model:foodName="foodName" :foodName="foodName"
+          :afterChooseFood="afterChooseFood" :filteredFoods="filteredFoods" :imageUploadedUrl="imageUploadedUrl"
+          :uploadState="uploadState" :chooseFood="chooseFood" :handleFileChange="handleFileChange"
+          :removeFile="removeFile" :addPost="addPost" :uploadStateActive="uploadStateActive" />
         <div class="sort-label">
           <p @click="showAll()" :class="{ sortLabelActive: activeLabel === 'All' }">All</p>
           <p @click="sortLabel('Discussion')" :class="{ sortLabelActive: activeLabel === 'Discussion' }">Discussion</p>
@@ -264,7 +253,7 @@ const closeNotif = () => {
               <img v-else :src="post.profile_picture" alt="" class="user-profile-picture">
               <div class="post-detail">
                 <div class="nameAndDate">
-                  <RouterLink :to="`/Profile/${post.name}`">
+                  <RouterLink :to="`/profile/${post.name}`">
                     <h3>{{ post.name }}</h3>
                   </RouterLink>
                   <p>{{ post.date_created }}</p>
@@ -702,6 +691,11 @@ hr {
 
   .modal .full-image {
     width: 350px;
+  }
+
+  .notif {
+    right: 1%;
+    width: 90%;
   }
 }
 </style>

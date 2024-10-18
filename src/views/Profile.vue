@@ -363,7 +363,7 @@ hr {
 .custom-file-upload {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     flex-wrap: wrap;
     width: 100%;
     max-width: 350px;
@@ -639,6 +639,7 @@ hr {
 
     .container .card {
         margin-bottom: 20px;
+        width: 21rem;
     }
 
     .container .card .button-action button {
@@ -670,6 +671,11 @@ hr {
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 11rem;
+    }
+
+    .notif {
+        right: 1%;
+        width: 90%;
     }
 }
 </style>
