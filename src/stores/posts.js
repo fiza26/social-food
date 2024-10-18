@@ -84,12 +84,9 @@ export const usePostsStore = defineStore('postsStore', {
             this.notif = true;
             this.messageNotif = 'Selected post has been deleted'
 
-            if (route.name === 'Comment') {
+            if (route.name === 'comment') {
                 history.go(-1);
             }
-            // else if (route.name === 'home') {
-            //     location.reload()
-            // }
         },
         async upvote(post) {
             const userStore = useUserStore();

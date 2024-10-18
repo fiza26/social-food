@@ -19,7 +19,7 @@ export const useUserStore = defineStore('userStore', {
             this.localUser = await supabase.auth.getSession();
             this.name = this.localUser.data.session.user.user_metadata.username;
             this.fullName = this.localUser.data.session.user.user_metadata.full_name;
-            console.log("Local User:", this.localUser.data.session);
+            // console.log("Local User:", this.localUser.data.session);
             if (this.localUser.data.session) {
                 this.show = false;
             }

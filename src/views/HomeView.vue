@@ -48,7 +48,6 @@ const searchFoods = async () => {
       console.error('Error loading food:', error);
     }
   }
-  console.log("Combined Filtered Foods:", foods.value);
 };
 searchFoods();
 
@@ -184,7 +183,7 @@ const sortLabel = (label) => {
   showDiv.value = true;
   activeLabel.value = label;
   filteredItems.value = postsStore.posts.filter((item) => item.label === label);
-  console.log("Filtered items for label", label, ":", filteredItems.value);
+  // console.log("Filtered items for label", label, ":", filteredItems.value);
 };
 
 //Slice functionality 

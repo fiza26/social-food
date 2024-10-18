@@ -57,7 +57,6 @@ async function getNotifFromUpvotes() {
   if (!userStore.name) return;
   const { data } = await supabase.from('upvotes').select().neq('name', userStore.name);
   notifFromUpvotes.value = data;
-  console.log('Notif from upvotes:', notifFromUpvotes.value);
 }
 getNotifFromUpvotes();
 
@@ -67,7 +66,6 @@ async function getNotifFromComments() {
   if (!userStore.name) return;
   const { data } = await supabase.from('comments').select().neq('name', userStore.name);
   notifFromComments.value = data;
-  console.log('Notif Data:', notifFromComments.value);
 }
 getNotifFromComments();
 
