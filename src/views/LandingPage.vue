@@ -59,6 +59,7 @@ section {
     background-image: linear-gradient(to right, #e84393, #f368e0, lightblue);
     height: 100vh;
     color: white;
+    overflow: hidden;
 }
 
 .social-platform {
@@ -117,7 +118,7 @@ section .burger img {
 
 section .tomato {
     position: absolute;
-    bottom: -100px;
+    bottom: -50px;
     left: -100px;
     z-index: 1;
 }
@@ -139,7 +140,7 @@ section .ramen img {
 
 section .fried-chicken {
     position: absolute;
-    bottom: -80px;
+    bottom: -60px;
     left: 270px;
 }
 
@@ -150,7 +151,7 @@ section .fried-chicken img {
 
 section .spaghetti {
     position: absolute;
-    bottom: -70px;
+    bottom: -50px;
     left: 70px;
 }
 
@@ -161,7 +162,7 @@ section .spaghetti img {
 
 section .pancakes {
     position: absolute;
-    bottom: -150px;
+    bottom: -120px;
     right: 200px;
     z-index: 1;
 }
@@ -173,12 +174,18 @@ section .pancakes img {
 
 section .beef {
     position: absolute;
-    bottom: -80px;
+    bottom: -50px;
     right: 0;
 }
 
 section .beef img {
     height: 200px;
     width: auto;
+}
+
+@media screen and (max-width: 768px) {
+    section .burger img, .tomato img, .ramen img, .fried-chicken img, .spaghetti img {
+       display: none;
+    }
 }
 </style>

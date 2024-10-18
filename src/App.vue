@@ -93,20 +93,21 @@ const showMenu = () => {
     <div class="wrapper" v-if="route.name != 'Landing'">
       <nav>
         <RouterLink to="/" v-if="localUser">Home</RouterLink>
-        <div class="user-access">
+        <div class="user-access" v-if="!hamburgerMenuState">
           <span v-if="localUser" @click="clickNotif()">Notification ({{ notifFromUpvotes.length +
             notifFromComments.length }})</span>
           <RouterLink v-if="localUser" :to="`/profile/${userStore.name}`">Profile</RouterLink>
           <span v-if="localUser" @click="logout">Logout</span>
         </div>
-        <div class="hamburger-menu" @click="showMenu()">
+        <div class="hamburger-menu" @click="showMenu()" v-if="localUser">
           <span v-if="!hamburgerMenuState">---</span>
           <span v-if="!hamburgerMenuState">---</span>
           <span v-if="!hamburgerMenuState">---</span>
           <span v-else>X</span>
         </div>
         <div class="mobile-user-access" v-if="hamburgerMenuState">
-          <span v-if="localUser" @click="clickNotif()">Notification</span>
+          <span v-if="localUser" @click="clickNotif()">Notification ({{ notifFromUpvotes.length +
+            notifFromComments.length }})</span>
           <RouterLink v-if="localUser" :to="`/profile/${userStore.name}`">Profile</RouterLink>
           <span v-if="localUser" @click="logout">Logout</span>
         </div>
