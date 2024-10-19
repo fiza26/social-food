@@ -71,7 +71,8 @@ export const usePostsStore = defineStore('postsStore', {
             if (post.post_content.length > 0) {
                 const { error } = await supabase.from('posts').update({ post_content: post.post_content }).eq('id', post.id);
                 this.notif = true;
-                this.messageNotif = 'Post has been updated'
+                this.messageNotif = 'Post has been updated';
+                await this.getPosts();
             } else {
                 window.alert("Field can not be empty");
             }
@@ -82,7 +83,8 @@ export const usePostsStore = defineStore('postsStore', {
             await supabase.from('comments').delete().eq('id_post', post.id);
             await supabase.from('saved_post').delete().eq('id_post', post.id);
             this.notif = true;
-            this.messageNotif = 'Selected post has been deleted'
+            this.messageNotif = 'Selected post has been deleted';
+            await this.getPosts();
 
             if (route.name === 'comment') {
                 history.go(-1);

@@ -131,7 +131,8 @@ async function addPost() {
     window.alert("Data has not added");
   } else {
     notif.value = true;
-    messageNotif.value = 'Post has been added successfully'
+    messageNotif.value = 'Post has been added successfully';
+    await postsStore.getPosts();
   }
 };
 
@@ -183,7 +184,6 @@ const sortLabel = (label) => {
   showDiv.value = true;
   activeLabel.value = label;
   filteredItems.value = postsStore.posts.filter((item) => item.label === label);
-  // console.log("Filtered items for label", label, ":", filteredItems.value);
 };
 
 //Slice functionality 

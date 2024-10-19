@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, nextTick } from "vue";
 import { RouterLink } from "vue-router";
 import { useRoute } from "vue-router";
 import { useUserStore } from '../stores/userSession';
@@ -45,7 +45,6 @@ const messageNotif = ref('');
 
 const closeNotif = () => {
     notif.value = false;
-    location.reload();
 }
 
 // Show Full Image
@@ -80,6 +79,7 @@ async function insertComment() {
         comment.value = "";
         notif.value = true;
         messageNotif.value = 'Comment has been posted'
+        await getComments();
     }
 };
 
@@ -100,7 +100,6 @@ getComments();
 // Edit Comment 
 const editComment = (comment) => {
     comment.editCommentState = !comment.editCommentState;
-    console.log("Edit Comment State", comment.editCommentState)
 }
 
 async function submitEditComment(comment) {
@@ -110,6 +109,7 @@ async function submitEditComment(comment) {
     } else {
         notif.value = true;
         messageNotif.value = 'Comment has been updated';
+        await getComments();
     }
 }
 
@@ -129,6 +129,7 @@ async function deleteComment(comment) {
     } else {
         notif.value = true;
         messageNotif.value = 'Comment has been deleted';
+        await getComments();
     }
 }
 </script>
