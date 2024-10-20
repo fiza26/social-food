@@ -231,7 +231,7 @@ const closeNotif = () => {
         <PostForm v-model="content" v-model:label="label" v-model:foodName="foodName" :foodName="foodName"
           :afterChooseFood="afterChooseFood" :filteredFoods="filteredFoods" :imageUploadedUrl="imageUploadedUrl"
           :uploadState="uploadState" :chooseFood="chooseFood" :handleFileChange="handleFileChange"
-          :removeFile="removeFile" :addPost="addPost" :uploadStateActive="uploadStateActive" />
+          :removeFile="removeFile" :addPost="addPost" :uploadStateActive="uploadStateActive" :file="file"/>
         <div class="sort-label">
           <p @click="showAll()" :class="{ sortLabelActive: activeLabel === 'All' }">All</p>
           <p @click="sortLabel('Discussion')" :class="{ sortLabelActive: activeLabel === 'Discussion' }">Discussion</p>

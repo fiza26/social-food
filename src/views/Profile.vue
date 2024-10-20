@@ -206,7 +206,7 @@ getSavedPost();
                     <div class="change-profile-picture" v-if="userProfile.length === 0">
                         <div v-if="uploadState" class="custom-file-upload">
                             <label for="file-upload" class="custom-upload-button">Choose File</label>
-                            <p>{{ imageUrl }}</p>
+                            <p v-if="file">{{ file.name }}</p>
                             <input id="file-upload" type="file" @change="handleFileChange" accept="image/*" />
                             <button @click="uploadImage">Upload</button>
                         </div>

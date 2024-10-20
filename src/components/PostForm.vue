@@ -17,6 +17,7 @@ const props = defineProps({
     removeFile: Function,
     addPost: Function,
     uploadStateActive: Function,
+    file: File | null,
 });
 
 // Emit for v-model content
@@ -24,15 +25,6 @@ const emit = defineEmits(['update:modelValue', 'update:label', 'update:foodName'
 
 const localContent = ref(props.modelValue);
 const selectedLabel = ref(props.label);
-
-// Watch for changes in localContent and selectedLabel
-// watch(localContent, (newValue) => {
-//     emit('update:modelValue', newValue); // Emit when content changes
-// });
-
-// watch(selectedLabel, (newValue) => {
-//     emit('update:label', newValue); // Emit when label changes
-// });
 
 // Update localContent on input
 const updateContent = () => {
@@ -48,6 +40,7 @@ const updateLabel = () => {
 const updateFoodName = (event) => {
     emit('update:foodName', event.target.value);
 };
+
 
 </script>
 
@@ -75,7 +68,7 @@ const updateFoodName = (event) => {
             <div v-if="uploadState" class="custom-file-upload">
                 <label for="file-upload" class="custom-upload-button">Choose File</label>
                 <input id="file-upload" type="file" @change="handleFileChange" accept="image/*" />
-                <p v-if="imageUploadedUrl">{{ imageUploadedUrl }}</p>
+                <p v-if="file">{{ file.name }}</p>
                 <button v-if="imageUploadedUrl" @click="removeFile">X Remove File</button>
             </div>
         </div>
