@@ -620,6 +620,10 @@ hr {
         width: 100%;
     }
 
+    .container .profile .edit-delete span {
+        font-size: 13px;
+    }
+
     .content img {
         width: 300px;
     }
