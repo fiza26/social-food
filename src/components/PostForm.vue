@@ -80,7 +80,7 @@ const updateFoodName = (event) => {
     </div>
 </template>
 
-<style>
+<style scoped>
 .container .card-posting {
     background-color: #ffff;
     border: 2px solid #e84393;

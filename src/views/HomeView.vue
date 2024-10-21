@@ -8,6 +8,7 @@ import { usePostsStore } from "../stores/posts";
 import { supabaseUrl, supabaseKey } from '@/supabaseConfig';
 import { createClient } from '@supabase/supabase-js';
 import PostForm from "@/components/PostForm.vue";
+import SortLabel from "@/components/SortLabel.vue";
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -231,13 +232,8 @@ const closeNotif = () => {
         <PostForm v-model="content" v-model:label="label" v-model:foodName="foodName" :foodName="foodName"
           :afterChooseFood="afterChooseFood" :filteredFoods="filteredFoods" :imageUploadedUrl="imageUploadedUrl"
           :uploadState="uploadState" :chooseFood="chooseFood" :handleFileChange="handleFileChange"
-          :removeFile="removeFile" :addPost="addPost" :uploadStateActive="uploadStateActive" :file="file"/>
-        <div class="sort-label">
-          <p @click="showAll()" :class="{ sortLabelActive: activeLabel === 'All' }">All</p>
-          <p @click="sortLabel('Discussion')" :class="{ sortLabelActive: activeLabel === 'Discussion' }">Discussion</p>
-          <p @click="sortLabel('Question')" :class="{ sortLabelActive: activeLabel === 'Question' }">Question</p>
-          <p @click="sortLabel('Recipe')" :class="{ sortLabelActive: activeLabel === 'Recipe' }">Recipe</p>
-        </div>
+          :removeFile="removeFile" :addPost="addPost" :uploadStateActive="uploadStateActive" :file="file" />
+        <SortLabel :activeLabel="activeLabel" @showAll="showAll" @sortLabel="sortLabel" />
         <h3 v-if="postsStore.posts < 1">There is no post yet</h3>
         <div v-if="isFiltered && filteredItems.length === 0">
           <p>No post with this label yet</p>
@@ -338,36 +334,6 @@ const closeNotif = () => {
 .container {
   display: flex;
   flex-direction: column;
-}
-
-.container .sort-label {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 40rem;
-  margin-bottom: 20px;
-  border-radius: 15px;
-  padding: 15px;
-}
-
-.container .sort-label p {
-  margin: 5px;
-  border-radius: 15px;
-  width: 130px;
-  text-align: center;
-  padding: 3px;
-  border: 1px solid #e84393;
-  cursor: pointer;
-}
-
-.container .sort-label p:hover {
-  background-color: #e84393;
-  color: white;
-}
-
-.container .sortLabelActive {
-  background-color: #e84393;
-  color: white;
 }
 
 hr {
