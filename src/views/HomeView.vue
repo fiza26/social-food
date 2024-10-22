@@ -9,6 +9,7 @@ import { supabaseUrl, supabaseKey } from '@/supabaseConfig';
 import { createClient } from '@supabase/supabase-js';
 import PostForm from "@/components/PostForm.vue";
 import SortLabel from "@/components/SortLabel.vue";
+import IfNoPost from "@/components/IfNoPost.vue";
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -234,7 +235,7 @@ const closeNotif = () => {
           :uploadState="uploadState" :chooseFood="chooseFood" :handleFileChange="handleFileChange"
           :removeFile="removeFile" :addPost="addPost" :uploadStateActive="uploadStateActive" :file="file" />
         <SortLabel :activeLabel="activeLabel" @showAll="showAll" @sortLabel="sortLabel" />
-        <h3 v-if="postsStore.posts < 1">There is no post yet</h3>
+        <IfNoPost />
         <div v-if="isFiltered && filteredItems.length === 0">
           <p>No post with this label yet</p>
         </div>
