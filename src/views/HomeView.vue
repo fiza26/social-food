@@ -10,6 +10,8 @@ import { createClient } from '@supabase/supabase-js';
 import PostForm from "@/components/PostForm.vue";
 import SortLabel from "@/components/SortLabel.vue";
 import IfNoPost from "@/components/IfNoPost.vue";
+import IfNoPostSelectedLabel from "@/components/IfNoPostSelectedLabel.vue";
+import PostItem from "@/components/PostItem.vue";
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -239,6 +241,7 @@ const closeNotif = () => {
         <div v-if="isFiltered && filteredItems.length === 0">
           <p>No post with this label yet</p>
         </div>
+        <!-- <IfNoPostSelectedLabel :isFiltered="isFiltered" :filteredItems="filteredItems" /> -->
         <div v-else>
           <div class="card" v-for="post in (isFiltered ? filteredItems : postsStore.posts).slice(0, visibleCount)"
             :key="post.id">
