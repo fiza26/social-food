@@ -20,7 +20,6 @@ const removeSavedPostAlternative = (post) => postsStore.removeSavedPostAlternati
 async function loadProfile() {
     await userStore.isLoggedIn();
     await userStore.getProfile();
-    console.log("Profile Data:", userStore.userProfile[0].profile_picture_url);
 }
 loadProfile();
 

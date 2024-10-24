@@ -151,7 +151,6 @@ export const usePostsStore = defineStore('postsStore', {
                 console.log("Error occured", error);
             } else {
                 post.isSaved = true;
-                console.log("Saved Post:", savedPost.value);
             }
         },
         async removeSavedPost(post) {
