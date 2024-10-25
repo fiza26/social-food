@@ -53,4 +53,31 @@ const sortLabel = (label) => emit('sortLabel', label);
     background-color: #e84393;
     color: white;
 }
+
+@media screen and (max-width: 768px) {
+    .container .sort-label {
+        max-width: 40rem;
+    }
+
+    .container .card {
+        margin-bottom: 20px;
+    }
+
+    .container .card .button-action button {
+        width: 9rem;
+    }
+
+    .content img {
+        width: 300px;
+    }
+
+    .modal .full-image {
+        width: 350px;
+    }
+
+    .notif {
+        right: 1%;
+        width: 90%;
+    }
+}
 </style>
