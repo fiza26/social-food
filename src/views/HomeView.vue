@@ -13,6 +13,7 @@ import IfNoPost from "@/components/IfNoPost.vue";
 import IfNoPostSelectedLabel from "@/components/IfNoPostSelectedLabel.vue";
 import PostItem from "@/components/PostItem.vue";
 import PostCardContent from "@/components/PostCardContent.vue";
+import PostCardButtonAction from "@/components/PostCardButtonAction.vue";
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -250,15 +251,8 @@ const closeNotif = () => {
             <hr>
             <PostCardContent :modalForImage="modalForImage" :clickedImage="clickedImage" :closeImage="closeImage"
               :post="post" :showFullImage="showFullImage" />
-            <div class="button-action" v-if="!post.editPostActive">
-              <button v-if="!post.isUpvoted" @click="upvote(post)">{{ post.upvotes }} Upvote</button>
-              <button v-else @click="removeUpvote(post)" class="upvoted">{{ post.upvotes }} Remove Upvote</button>
-              <RouterLink :to="`/comment/${post.id}`"><button>{{ post.total_comments }} Comment</button></RouterLink>
-            </div>
-            <div class="button-action" v-if="post.editPostActive">
-              <button @click="submitEdit(post)" :class="{ editStateActive: post.editPostActive }">Update</button>
-              <button @click="cancelEdit(post)">Cancel</button>
-            </div>
+            <PostCardButtonAction :post="post" :upvote="upvote" :removeUpvote="removeUpvote" :submitEdit="submitEdit"
+              :cancelEdit="cancelEdit" />
           </div>
         </div>
         <div class="showMoreOrLess" v-if="postsStore.posts.length >= 4 && !showDiv">
@@ -316,43 +310,6 @@ hr {
   border-radius: 15px;
   animation-name: card-animation;
   animation-duration: 0.5s;
-}
-
-.container .card .button-action {
-  display: flex;
-  justify-content: space-between;
-}
-
-.container .card .button-action button {
-  font-family: "Poppins", sans-serif;
-  height: 30px;
-  width: 15rem;
-  border: none;
-  background-color: white;
-  border: 2px solid #e84393;
-  margin-top: 10px;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
-.editStateActive {
-  width: 50rem;
-}
-
-.container .card .button-action .upvoted {
-  background-image: linear-gradient(to right, #e84393, #f368e0, lightblue);
-  border: none;
-  color: white;
-}
-
-.container .card .button-action button:hover {
-  background-image: linear-gradient(to right, #e84393, #f368e0, lightblue);
-  border: none;
-  color: white;
-}
-
-.container .card .button-action button:active {
-  transform: scale(0.9);
 }
 
 .container .showMoreOrLess {
