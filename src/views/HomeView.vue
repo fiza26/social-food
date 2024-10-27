@@ -14,6 +14,7 @@ import IfNoPostSelectedLabel from "@/components/IfNoPostSelectedLabel.vue";
 import PostItem from "@/components/PostItem.vue";
 import PostCardContent from "@/components/PostCardContent.vue";
 import PostCardButtonAction from "@/components/PostCardButtonAction.vue";
+import ShowMoreOrLess from "@/components/ShowMoreOrLess.vue";
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -255,14 +256,8 @@ const closeNotif = () => {
               :cancelEdit="cancelEdit" />
           </div>
         </div>
-        <div class="showMoreOrLess" v-if="postsStore.posts.length >= 4 && !showDiv">
-          <button @click="showMore()" v-if="!showState">Show More</button>
-          <button @click="showLess()" v-else>Show Less</button>
-        </div>
-        <div class="showMoreOrLess" v-if="filteredItems.length > 4 && showDiv">
-          <button @click="showMore()" v-if="!showState">Show More</button>
-          <button @click="showLess()" v-else>Show Less</button>
-        </div>
+        <ShowMoreOrLess :showDiv="showDiv" :showMore="showMore" :showState="showState" :showLess="showLess"
+          :filteredItems="filteredItems" />
         <div class="notif" v-if="postsStore.notif || notif">
           <p v-if="notif">{{ messageNotif }}</p>
           <p v-else>{{ postsStore.messageNotif }}</p>
@@ -310,26 +305,6 @@ hr {
   border-radius: 15px;
   animation-name: card-animation;
   animation-duration: 0.5s;
-}
-
-.container .showMoreOrLess {
-  display: flex;
-  justify-content: center;
-}
-
-.container .showMoreOrLess button {
-  font-family: "Poppins", sans-serif;
-  background-color: #e84393;
-  color: white;
-  padding: 5px;
-  border: none;
-  border-radius: 15px;
-  width: 180px;
-  cursor: pointer;
-}
-
-.container .showMoreOrLess button:active {
-  transform: scale(0.9);
 }
 
 .second-container {
