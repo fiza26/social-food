@@ -15,6 +15,7 @@ import PostItem from "@/components/PostItem.vue";
 import PostCardContent from "@/components/PostCardContent.vue";
 import PostCardButtonAction from "@/components/PostCardButtonAction.vue";
 import ShowMoreOrLess from "@/components/ShowMoreOrLess.vue";
+import Notif from "@/components/Notif.vue";
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -258,11 +259,7 @@ const closeNotif = () => {
         </div>
         <ShowMoreOrLess :showDiv="showDiv" :showMore="showMore" :showState="showState" :showLess="showLess"
           :filteredItems="filteredItems" />
-        <div class="notif" v-if="postsStore.notif || notif">
-          <p v-if="notif">{{ messageNotif }}</p>
-          <p v-else>{{ postsStore.messageNotif }}</p>
-          <p class="close-notif" @click="closeNotif()">X</p>
-        </div>
+        <Notif :notif="notif" :messageNotif="messageNotif" :closeNotif="closeNotif" />
       </div>
     </div>
   </main>
@@ -309,37 +306,6 @@ hr {
 
 .second-container {
   margin-left: 30px;
-}
-
-.notif {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #e84393;
-  color: white;
-  width: 300px;
-  padding: 15px;
-  border-radius: 15px;
-  position: fixed;
-  top: 450px;
-  right: 30px;
-  transition: ease-in-out;
-  animation-name: item-notif;
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
-  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.75);
-}
-
-.close-notif {
-  background-color: white;
-  padding: 3px;
-  width: 35px;
-  border-radius: 15px;
-  color: black;
-  text-align: center;
-  cursor: pointer;
 }
 
 @keyframes card-animation {
