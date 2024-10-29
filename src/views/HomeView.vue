@@ -10,7 +10,6 @@ import { createClient } from '@supabase/supabase-js';
 import PostForm from "@/components/PostForm.vue";
 import SortLabel from "@/components/SortLabel.vue";
 import IfNoPost from "@/components/IfNoPost.vue";
-import IfNoPostSelectedLabel from "@/components/IfNoPostSelectedLabel.vue";
 import PostItem from "@/components/PostItem.vue";
 import PostCardContent from "@/components/PostCardContent.vue";
 import PostCardButtonAction from "@/components/PostCardButtonAction.vue";
