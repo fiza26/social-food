@@ -9,7 +9,6 @@ const props = defineProps({
     submitEdit: Function,
     cancelEdit: Function
 })
-
 </script>
 
 <template>

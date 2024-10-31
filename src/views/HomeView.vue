@@ -1,6 +1,5 @@
 <script setup>
 import { ref, watch } from "vue";
-import { RouterLink } from "vue-router";
 import axios from "axios";
 import { useUserStore } from '../stores/userSession';
 import { usePostsStore } from "../stores/posts";

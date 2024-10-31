@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineProps, defineEmits, watch } from 'vue';
+import { ref, defineProps, defineEmits } from 'vue';
 import { useUserStore } from '../stores/userSession';
 
 const userStore = useUserStore();

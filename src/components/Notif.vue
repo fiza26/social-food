@@ -51,31 +51,6 @@ const props = defineProps({
     cursor: pointer;
 }
 
-@keyframes card-animation {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes moveUp {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-        border-radius: 15px;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
 @keyframes item-notif {
     0% {
         transform: scale(0);
