@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, nextTick } from "vue";
+import { ref, computed } from "vue";
 import { RouterLink } from "vue-router";
 import { useRoute } from "vue-router";
 import { useUserStore } from '../stores/userSession';
