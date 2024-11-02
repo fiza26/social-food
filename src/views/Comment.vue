@@ -226,8 +226,8 @@ async function deleteComment(comment) {
                 </div>
             </div>
             <div class="notif" v-if="postsStore.notif || notif">
-                <p v-if="notif">{{ messageNotif }}</p>
-                <p v-else>{{ postsStore.messageNotif }}</p>
+                <p v-if="notif" class="notif-texts">{{ messageNotif }}</p>
+                <p v-else class="notif-texts">{{ postsStore.messageNotif }}</p>
                 <p class="close-notif" @click="closeNotif()">X</p>
             </div>
         </div>
@@ -564,11 +564,18 @@ hr {
     -moz-box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.75);
 }
 
+.notif .notif-texts {
+    max-width: 200px;
+}
+
 .close-notif {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
-    padding: 3px;
-    width: 35px;
-    border-radius: 15px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
     color: black;
     text-align: center;
     cursor: pointer;
