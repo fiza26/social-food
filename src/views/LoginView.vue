@@ -128,7 +128,7 @@ async function regis() {
                 </div>
             </form>
             <div class="notif" v-if="notif">
-                <p>{{ messageNotif }}</p>
+                <p class="notif-texts">{{ messageNotif }}</p>
                 <p class="close-notif" @click="closeNotif()">X</p>
             </div>
         </div>
@@ -220,20 +220,28 @@ async function regis() {
     -moz-box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.75);
 }
 
+.notif .notif-texts {
+    max-width: 200px;
+}
+
 .close-notif {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
-    width: 33px;
-    border-radius: 15px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
     color: black;
     text-align: center;
     cursor: pointer;
 }
 
 @media (max-width: 768px) {
-  .notif {
-    right: 1%;
-    width: 90%;
-  }
+    .notif {
+        right: 1%;
+        width: 90%;
+    }
 }
 
 @keyframes item-notif {
