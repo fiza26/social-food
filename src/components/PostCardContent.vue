@@ -28,7 +28,7 @@ const props = defineProps({
     </div>
 </template>
 
-<style>
+<style scoped>
 .content {
     white-space: normal;
     word-wrap: break-word;
