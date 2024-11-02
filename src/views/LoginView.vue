@@ -222,8 +222,7 @@ async function regis() {
 
 .close-notif {
     background-color: white;
-    padding: 3px;
-    width: 35px;
+    width: 33px;
     border-radius: 15px;
     color: black;
     text-align: center;
