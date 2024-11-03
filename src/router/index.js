@@ -5,10 +5,7 @@ import Profile from '../views/Profile.vue';
 import Comment from '../views/Comment.vue';
 import LandingPage from '../views/LandingPage.vue';
 
-import { supabaseUrl, supabaseKey } from '@/supabaseConfig';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(supabaseUrl, supabaseKey);
+import supabase from "@/supabase";
 
 let localUser;
 

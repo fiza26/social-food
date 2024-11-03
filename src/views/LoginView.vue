@@ -2,10 +2,7 @@
 import { ref } from "vue";
 import router from "@/router";
 
-import { supabaseUrl, supabaseKey } from '@/supabaseConfig';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(supabaseUrl, supabaseKey);
+import supabase from "@/supabase";
 
 const loginState = ref(true);
 const regisState = ref(false);

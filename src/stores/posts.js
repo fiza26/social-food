@@ -2,10 +2,7 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useUserStore } from '../stores/userSession'
 
-import { supabaseUrl, supabaseKey } from '@/supabaseConfig';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(supabaseUrl, supabaseKey);
+import supabase from "@/supabase"
 
 export const usePostsStore = defineStore('postsStore', {
     state: () => ({

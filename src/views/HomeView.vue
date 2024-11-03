@@ -4,8 +4,7 @@ import axios from "axios";
 import { useUserStore } from '../stores/userSession';
 import { usePostsStore } from "../stores/posts";
 
-import { supabaseUrl, supabaseKey } from '@/supabaseConfig';
-import { createClient } from '@supabase/supabase-js';
+import supabase from "@/supabase";
 import PostForm from "@/components/PostForm.vue";
 import SortLabel from "@/components/SortLabel.vue";
 import IfNoPost from "@/components/IfNoPost.vue";
@@ -14,8 +13,6 @@ import PostCardContent from "@/components/PostCardContent.vue";
 import PostCardButtonAction from "@/components/PostCardButtonAction.vue";
 import ShowMoreOrLess from "@/components/ShowMoreOrLess.vue";
 import Notif from "@/components/Notif.vue";
-
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 const userStore = useUserStore();
 const postsStore = usePostsStore();

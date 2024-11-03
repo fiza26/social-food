@@ -5,10 +5,7 @@ import { useRoute } from "vue-router";
 import { useUserStore } from '../stores/userSession';
 import { usePostsStore } from "../stores/posts";
 
-import { supabaseUrl, supabaseKey } from '@/supabaseConfig';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(supabaseUrl, supabaseKey);
+import supabase from "@/supabase";
 
 const userStore = useUserStore();
 const postsStore = usePostsStore();
@@ -93,7 +90,6 @@ async function getComments() {
         comment.editCommentState = false;
         return comment;
     });
-    console.log("Comments", comments);
 };
 getComments();
 

@@ -4,10 +4,7 @@ import { RouterLink, RouterView, useRoute } from 'vue-router'
 import router from "@/router";
 import { useUserStore } from '@/stores/userSession';
 
-import { supabaseUrl, supabaseKey } from '@/supabaseConfig';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(supabaseUrl, supabaseKey);
+import supabase from "@/supabase";
 
 const userStore = useUserStore();
 
