@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-
 import supabase from "@/supabase"
 
 export const useUserStore = defineStore('userStore', {

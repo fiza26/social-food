@@ -4,7 +4,6 @@ import { RouterLink } from "vue-router";
 import { useRoute } from "vue-router";
 import { useUserStore } from '../stores/userSession';
 import { usePostsStore } from "../stores/posts";
-
 import supabase from "@/supabase";
 
 const userStore = useUserStore();

@@ -3,7 +3,6 @@ import { ref, watch } from "vue";
 import axios from "axios";
 import { useUserStore } from '../stores/userSession';
 import { usePostsStore } from "../stores/posts";
-
 import supabase from "@/supabase";
 import PostForm from "@/components/PostForm.vue";
 import SortLabel from "@/components/SortLabel.vue";

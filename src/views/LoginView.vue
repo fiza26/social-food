@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from "vue";
 import router from "@/router";
-
 import supabase from "@/supabase";
 
 const loginState = ref(true);
@@ -39,7 +38,7 @@ async function login() {
         notif.value = true;
         messageNotif.value = 'Login error, incorrect email and password';
     } else {
-        console.log(data);
+        // console.log(data);
         notif.value = true;
         messageNotif.value = 'Login success';
         setTimeout(() => {

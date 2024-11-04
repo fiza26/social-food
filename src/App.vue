@@ -3,7 +3,6 @@ import { ref, onMounted, watchEffect } from "vue"
 import { RouterLink, RouterView, useRoute } from 'vue-router'
 import router from "@/router";
 import { useUserStore } from '@/stores/userSession';
-
 import supabase from "@/supabase";
 
 const userStore = useUserStore();
@@ -33,7 +32,7 @@ watchEffect(() => {
 });
 
 async function logout() {
-  const { data, error } = await supabase.auth.signOut();
+  const { error } = await supabase.auth.signOut();
   if (error) {
     console.log(error)
   } else {
