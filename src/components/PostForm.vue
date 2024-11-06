@@ -224,18 +224,6 @@ const updateFoodName = (event) => {
     }
 }
 
-@keyframes item-notif {
-    0% {
-        transform: scale(0);
-        transform: translate(20rem, 1rem);
-    }
-
-    100% {
-        transform: scale(1);
-        transform: translate(-1rem, 1rem);
-    }
-}
-
 @media screen and (max-width: 768px) {
     .container .sort-label {
         max-width: 40rem;
