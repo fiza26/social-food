@@ -43,7 +43,7 @@ async function login() {
         messageNotif.value = 'Login success';
         setTimeout(() => {
             router.push({ name: 'home' });
-        }, 3000)
+        }, 1500)
     }
 };
 
@@ -233,13 +233,6 @@ async function regis() {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .notif {
-        right: 1%;
-        width: 90%;
-    }
-}
-
 @keyframes item-notif {
     0% {
         transform: scale(0);
@@ -249,6 +242,13 @@ async function regis() {
     100% {
         transform: scale(1);
         transform: translate(-1rem, 1rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .notif {
+        right: 1%;
+        width: 90%;
     }
 }
 </style>
