@@ -90,7 +90,7 @@ const showMenu = () => {
       <nav>
         <RouterLink to="/" v-if="localUser">Home</RouterLink>
         <div class="user-access" v-if="!hamburgerMenuState">
-          <span v-if="localUser" @click="clickNotif()">Notification ({{ notifFromUpvotes.length +
+          <span v-if="localUser" @click="clickNotif()"><i class="fa-solid fa-bell"></i> ({{ notifFromUpvotes.length +
             notifFromComments.length }})</span>
           <RouterLink v-if="localUser" :to="`/profile/${userStore.name}`">Profile</RouterLink>
           <span v-if="localUser" @click="logout">Logout</span>
@@ -102,7 +102,7 @@ const showMenu = () => {
           <span v-else>X</span>
         </div>
         <div class="mobile-user-access" v-if="hamburgerMenuState">
-          <span v-if="localUser" @click="clickNotif()">Notification ({{ notifFromUpvotes.length +
+          <span v-if="localUser" @click="clickNotif()"><i class="fa-solid fa-bell"></i> ({{ notifFromUpvotes.length +
             notifFromComments.length }})</span>
           <RouterLink v-if="localUser" :to="`/profile/${userStore.name}`">Profile</RouterLink>
           <span v-if="localUser" @click="logout">Logout</span>
@@ -129,6 +129,8 @@ const showMenu = () => {
 </template>
 
 <style>
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
 * {
   margin: 0;
   padding: 0;

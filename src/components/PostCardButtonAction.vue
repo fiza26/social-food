@@ -13,9 +13,9 @@ const props = defineProps({
 
 <template>
     <div class="button-action" v-if="!post.editPostActive">
-        <button v-if="!post.isUpvoted" @click="upvote(post)">{{ post.upvotes }} Upvote</button>
+        <button v-if="!post.isUpvoted" @click="upvote(post)">{{ post.upvotes }} <i class="fa-solid fa-arrow-up"></i> Upvote</button>
         <button v-else @click="removeUpvote(post)" class="upvoted">{{ post.upvotes }} Remove Upvote</button>
-        <RouterLink :to="`/comment/${post.id}`"><button>{{ post.total_comments }} Comment</button></RouterLink>
+        <RouterLink :to="`/comment/${post.id}`"><button>{{ post.total_comments }} <i class="fa-solid fa-comments"></i> Comment</button></RouterLink>
     </div>
     <div class="button-action" v-if="post.editPostActive">
         <button @click="submitEdit(post)" :class="{ editStateActive: post.editPostActive }">Update</button>

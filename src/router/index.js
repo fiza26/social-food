@@ -4,7 +4,6 @@ import LoginView from '@/views/LoginView.vue'
 import Profile from '../views/Profile.vue';
 import Comment from '../views/Comment.vue';
 import LandingPage from '../views/LandingPage.vue';
-
 import supabase from "@/supabase";
 
 let localUser;
